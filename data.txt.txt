@@ -1,0 +1,21 @@
+FILE = "data.txt"
+
+# ask user what to search
+word = input("Enter word to search: ")
+
+try:
+    f = open(FILE, "r", encoding="utf-8")
+    content = f.read()
+    f.close()
+
+    print("\nFound lines:")
+
+    for line in content.split("\n"):
+        if word.lower() in line.lower():
+            print(line)
+
+except FileNotFoundError:
+    print("File not found.")
+
+except Exception as e:
+    print("Error:", e)
